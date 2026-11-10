@@ -35,7 +35,7 @@
   .view--help .chat-chips { display: flex; flex-wrap: wrap; gap: var(--s-2); }
   .view--help .chat-chip {
     min-height: 44px; height: auto; white-space: normal; text-align: left; cursor: pointer;
-    transition: transform var(--t-press) var(--ease-out);
+    transition: transform var(--t-press) var(--ease-out), background-color var(--t-press) var(--ease-out);
   }
   .view--help .chat-chip:active, .view--help .btn:active { transform: scale(0.97); }
   .view--help .chat-form { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: stretch; }

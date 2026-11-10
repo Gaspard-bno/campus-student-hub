@@ -46,10 +46,10 @@ for (const tag of links) {
   const file = abs(href.split('?')[0].replace(/^\.?\//, ''));
   let text = await fs.readFile(file, 'utf8');
   const dir = path.dirname(file);
-  const urlRe = /url\(\s*(['"]?)([^'")]+)\1\s*\)/g;
+  const urlRe = /url\(\s*(?:"([^"]*)"|'([^']*)'|([^'")\s]+))\s*\)/g;
   const found = [...text.matchAll(urlRe)];
   for (const m of found) {
-    const ref = m[2];
+    const ref = m[1] ?? m[2] ?? m[3];
     if (/^(data:|https?:|#)/i.test(ref)) continue;
     const target = path.resolve(dir, ref.split(/[?#]/)[0]);
     if (!(await exists(target))) { console.warn(`warning: missing ${path.relative(root, target)} (from ${href})`); continue; }

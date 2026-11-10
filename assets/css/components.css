@@ -1,5 +1,4 @@
 @layer components {
-  /* ---------- Buttons ---------- */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -24,27 +23,26 @@
   .btn:active:not(:disabled) { transform: scale(0.97); }
   .btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; }
   .btn svg { width: 20px; height: 20px; }
-
   .btn--primary { background: var(--ember-500); color: var(--on-ember); }
-  .btn--primary:hover:not(:disabled) { background: var(--ember-400); }
-
   .btn--secondary { background: var(--ink-900); color: var(--text-1); border-color: var(--line); }
-  .btn--secondary:hover:not(:disabled) { background: var(--ink-800); }
-
   .btn--ghost { background: transparent; color: var(--text-1); }
-  .btn--ghost:hover:not(:disabled) { background: var(--ink-800); }
-
   .btn--danger { background: var(--danger); color: var(--on-ember); }
-  .btn--danger:hover:not(:disabled) { background: color-mix(in srgb, var(--danger) 85%, var(--text-1)); }
-
   .btn--block { display: flex; width: 100%; }
-
-  /* Cream surfaces flip the secondary/ghost buttons to ink */
   .card--cream .btn--secondary { background: transparent; color: var(--on-cream); border-color: color-mix(in srgb, var(--ink-950) 25%, transparent); }
   .card--cream .btn--ghost { color: var(--on-cream); }
-  .card--cream .btn--ghost:hover:not(:disabled),
-  .card--cream .btn--secondary:hover:not(:disabled) { background: color-mix(in srgb, var(--ink-950) 8%, transparent); }
-
+  @media (hover: hover) {
+    .btn--primary:hover:not(:disabled) { background: var(--ember-400); }
+    .btn--secondary:hover:not(:disabled), .btn--ghost:hover:not(:disabled) { background: var(--ink-800); }
+    .btn--danger:hover:not(:disabled) { background: color-mix(in srgb, var(--danger) 85%, var(--text-1)); }
+    .card--cream .btn--ghost:hover:not(:disabled),
+    .card--cream .btn--secondary:hover:not(:disabled) { background: color-mix(in srgb, var(--ink-950) 8%, transparent); }
+    .icon-btn:hover { background: var(--ink-800); }
+    .icon-btn--danger:hover { background: color-mix(in srgb, var(--danger) 24%, var(--ink-900)); }
+    .back-btn:hover, [data-testid="back"]:hover { background: var(--ink-800); color: var(--text-1); }
+    a.card:hover, button.card:hover { background: var(--ink-800); }
+    .seg__opt:hover:not([aria-pressed="true"]) { background: var(--ink-800); color: var(--text-1); }
+    a.list-row:hover, button.list-row:hover { background: var(--ink-800); }
+  }
   .icon-btn {
     display: inline-flex;
     align-items: center;
@@ -58,13 +56,9 @@
     -webkit-tap-highlight-color: transparent;
     transition: background-color var(--t-press) var(--ease-out), transform var(--t-press) var(--ease-out);
   }
-  .icon-btn:hover { background: var(--ink-800); }
-  .icon-btn:active { transform: scale(0.94); }
+  .icon-btn:active { transform: scale(0.97); }
   .icon-btn svg { width: 22px; height: 22px; }
   .icon-btn--danger { color: var(--danger); background: var(--danger-tint); }
-  .icon-btn--danger:hover { background: color-mix(in srgb, var(--danger) 24%, var(--ink-900)); }
-
-  /* Back bar from ui.backBar() */
   .back-bar { display: flex; align-items: center; margin: calc(var(--s-2) * -1) 0 calc(var(--s-2) * -1) calc(var(--s-2) * -1); }
   .back-btn, [data-testid="back"] {
     display: inline-flex;
@@ -75,12 +69,11 @@
     border-radius: var(--r-pill);
     color: var(--text-2);
     font-weight: 500;
-    transition: background-color var(--t-press) var(--ease-out), color var(--t-press) var(--ease-out);
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color var(--t-press) var(--ease-out), color var(--t-press) var(--ease-out), transform var(--t-press) var(--ease-out);
   }
-  .back-btn:hover, [data-testid="back"]:hover { background: var(--ink-800); color: var(--text-1); }
+  .back-btn:active, [data-testid="back"]:active { transform: scale(0.97); }
   .back-btn svg, [data-testid="back"] svg { width: 22px; height: 22px; }
-
-  /* ---------- Chips ---------- */
   .chip {
     display: inline-flex;
     align-items: center;
@@ -106,8 +99,6 @@
     color: var(--on-cream);
     border-color: color-mix(in srgb, var(--ink-950) 22%, transparent);
   }
-
-  /* ---------- Cards ---------- */
   .card {
     display: flex;
     flex-direction: column;
@@ -125,10 +116,7 @@
   }
   .card--cream .muted, .card--cream .label-mono, .card--cream .notice-mono { color: var(--on-cream-2); }
   a.card, button.card { text-decoration: none; text-align: left; transition: background-color var(--t-press) var(--ease-out), transform var(--t-press) var(--ease-out); }
-  a.card:hover, button.card:hover { background: var(--ink-800); }
-  a.card:active, button.card:active { transform: scale(0.98); }
-
-  /* ---------- Text helpers ---------- */
+  a.card:active, button.card:active { transform: scale(0.97); }
   .label-mono {
     font-family: var(--font-mono);
     font-size: var(--fs-12);
@@ -145,7 +133,6 @@
     color: var(--text-3);
   }
   .muted { color: var(--text-2); }
-
   .inline-error {
     display: flex;
     align-items: flex-start;
@@ -159,8 +146,6 @@
   }
   .inline-error:empty { display: none; }
   .inline-error svg { width: 18px; height: 18px; color: var(--danger); margin-top: 2px; }
-
-  /* ---------- Avatar ---------- */
   .avatar {
     display: inline-flex;
     align-items: center;
@@ -176,8 +161,6 @@
     font-weight: 500;
     letter-spacing: 0.02em;
   }
-
-  /* ---------- Segmented control ---------- */
   .seg {
     display: flex;
     gap: var(--s-1);
@@ -186,6 +169,7 @@
     border: 1px solid var(--line);
     border-radius: var(--r-md);
   }
+  .panel .seg, .panel .btn--secondary { border-color: var(--text-3); }
   .seg__opt {
     flex: 1 1 0;
     min-width: 0;
@@ -201,13 +185,12 @@
     font-weight: 500;
     line-height: 1.25;
     text-align: center;
-    transition: background-color var(--t-press) var(--ease-out), color var(--t-press) var(--ease-out);
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color var(--t-press) var(--ease-out), color var(--t-press) var(--ease-out), transform var(--t-press) var(--ease-out);
   }
+  .seg__opt:active { transform: scale(0.97); }
   .seg__opt svg { width: 18px; height: 18px; }
-  .seg__opt:hover { background: var(--ink-800); color: var(--text-1); }
   .seg__opt[aria-pressed="true"] { background: var(--ember-500); color: var(--on-ember); font-weight: 600; }
-
-  /* ---------- List row ---------- */
   .list-row {
     display: flex;
     align-items: center;
@@ -222,15 +205,10 @@
     -webkit-tap-highlight-color: transparent;
     transition: background-color var(--t-press) var(--ease-out), transform var(--t-press) var(--ease-out);
   }
-  a.list-row:hover, button.list-row:hover { background: var(--ink-800); }
-  a.list-row:active, button.list-row:active { transform: scale(0.98); }
+  a.list-row:active, button.list-row:active { transform: scale(0.97); }
   .list-row > svg:last-child { margin-left: auto; color: var(--text-3); width: 20px; height: 20px; }
-
-  /* ---------- Flow ---------- */
   .stack { display: flex; flex-direction: column; gap: var(--gap, var(--s-4)); }
   .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap, var(--s-2)); }
-
-  /* ---------- Field ---------- */
   .field {
     position: relative;
     display: flex;
@@ -265,7 +243,5 @@
   }
   .field input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
   .field:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
-
-  /* ---------- V1 / V2 hooks ---------- */
   html[data-version="2"] .label-mono { color: var(--text-2); }
 }

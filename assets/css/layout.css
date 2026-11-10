@@ -1,9 +1,6 @@
 @layer layout {
-  /* ---------- Stage (mobile: the phone fills the screen) ---------- */
   .stage { min-height: 100dvh; }
-
   .panel { display: none; }
-
   .phone {
     position: relative;
     isolation: isolate;
@@ -14,8 +11,6 @@
     overflow: hidden;
     background: var(--ink-950);
   }
-
-  /* Aurora: static blurred glow behind the banner/header area only, fades out before content */
   .phone::before {
     content: "";
     position: absolute;
@@ -43,8 +38,6 @@
     -webkit-mask-image: linear-gradient(to bottom, var(--ink-950) 35%, transparent);
     mask-image: linear-gradient(to bottom, var(--ink-950) 35%, transparent);
   }
-
-  /* ---------- Banner ---------- */
   .banner {
     flex: none;
     min-height: var(--banner-h);
@@ -61,8 +54,6 @@
     letter-spacing: 0.02em;
     text-align: center;
   }
-
-  /* ---------- Header ---------- */
   .app-header {
     flex: none;
     position: relative;
@@ -93,15 +84,15 @@
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
+    transition: transform var(--t-press) var(--ease-out);
   }
+  .app-header__logo:active { transform: scale(0.97); }
   .app-header__actions {
     display: flex;
     align-items: center;
     gap: var(--s-1);
     flex: none;
   }
-
-  /* Language switch + inline menu */
   .lang { position: relative; }
   .lang__btn {
     min-height: var(--tap);
@@ -122,11 +113,15 @@
     text-transform: uppercase;
     transition: background-color var(--t-press) var(--ease-out), transform var(--t-press) var(--ease-out);
   }
-  .lang__btn:hover, .lang__btn[aria-expanded="true"] { background: var(--ink-800); }
+  .lang__btn[aria-expanded="true"] { background: var(--ink-800); }
+  @media (hover: hover) {
+    .lang__btn:hover { background: var(--ink-800); }
+    .lang__opt:hover { background: var(--ink-800); }
+    .tab:hover { color: var(--text-2); }
+  }
   .lang__btn:active { transform: scale(0.97); }
   .lang__icon { display: inline-flex; color: var(--text-2); }
   .lang__icon svg { width: 18px; height: 18px; }
-
   .lang__menu {
     position: absolute;
     top: calc(100% + var(--s-2));
@@ -153,14 +148,13 @@
     color: var(--text-1);
     text-align: left;
     font-weight: 500;
+    transition: background-color var(--t-press) var(--ease-out), transform var(--t-press) var(--ease-out);
   }
-  .lang__opt:hover { background: var(--ink-800); }
+  .lang__opt:active { transform: scale(0.97); }
   .lang__opt[aria-pressed="true"], .lang__opt[aria-checked="true"], .lang__opt[aria-current="true"] {
     background: var(--ember-tint);
     color: var(--text-1);
   }
-
-  /* ---------- Main scroll area ---------- */
   .app-main {
     flex: 1 1 auto;
     min-height: 0;
@@ -175,8 +169,6 @@
     padding-right: env(safe-area-inset-right, 0px);
   }
   .app-main:focus-visible { outline: none; }
-
-  /* Generic view frame (views may refine it in @layer views) */
   .view {
     min-height: 100%;
     padding: var(--s-4) var(--s-4) var(--s-8);
@@ -186,8 +178,6 @@
   }
   .view__title { font-size: var(--fs-25); }
   .view__title:focus { outline: none; }
-
-  /* ---------- Tab bar ---------- */
   .tabbar {
     flex: none;
     position: relative;
@@ -213,9 +203,10 @@
     font-size: var(--fs-12);
     font-weight: 500;
     line-height: 1.2;
-    transition: color var(--t-press) var(--ease-out);
+    transition: color var(--t-press) var(--ease-out), transform var(--t-press) var(--ease-out);
     -webkit-tap-highlight-color: transparent;
   }
+  .tab:active { transform: scale(0.97); }
   .tab:focus-visible { outline-offset: -4px; }
   .tab__icon { display: inline-flex; }
   .tab__icon svg { width: 24px; height: 24px; }
@@ -225,18 +216,12 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .tab:hover { color: var(--text-2); }
   .tab[aria-current="page"] { color: var(--ember-500); }
   .tab[aria-current="page"] .tab__label { color: var(--text-1); }
-
-  /* Welcome route: no header, no tab bar */
   body.is-welcome .app-header,
   body.is-welcome .tabbar { display: none; }
-
-  /* ---------- Screen transitions (set by the router) ---------- */
   .view-enter-fwd { animation: csh-enter-fwd var(--t-screen) var(--ease-out) both; }
   .view-enter-back { animation: csh-enter-back var(--t-screen) var(--ease-out) both; }
-
   @keyframes csh-enter-fwd {
     from { opacity: 0; transform: translateX(12px); }
     to { opacity: 1; transform: none; }
@@ -249,15 +234,11 @@
     from { opacity: 0; }
     to { opacity: 1; }
   }
-
   @media (prefers-reduced-motion: reduce) {
     .view-enter-fwd, .view-enter-back { animation: csh-fade var(--t-screen) linear both; }
   }
-
-  /* ---------- Desktop: side panel + phone frame on the aurora backdrop ---------- */
   @media (min-width: 900px) {
     body { overflow: hidden; }
-
     .stage {
       position: relative;
       isolation: isolate;
@@ -291,7 +272,6 @@
       background-image: var(--grain);
       opacity: 0.05;
     }
-
     .panel {
       display: flex;
       flex-direction: column;
@@ -305,7 +285,6 @@
       scrollbar-width: thin;
       scrollbar-color: var(--line) transparent;
     }
-
     .phone {
       width: 410px;
       height: min(864px, calc(100dvh - var(--s-12)));
@@ -317,8 +296,6 @@
     }
     .banner { padding-top: var(--s-2); border-radius: 34px 34px 0 0; }
   }
-
-  /* Panel content */
   .panel__brand {
     font-family: var(--font-mono);
     font-size: var(--fs-12);

@@ -43,6 +43,7 @@ await pause(600);
 await T('search-input').click();
 await T('search-input').pressSequentially('stress', { delay: 220 });
 await pause(1800);
+await until(23);
 await T('result-counselling-session').click();
 await until(25);
 
@@ -58,7 +59,7 @@ for (let i = 0; i < n; i++) {
   const free = page.locator('[data-testid^="slot-"][data-state="free"]');
   if ((await free.count()) > 0) { await free.first().click(); break; }
 }
-await pause(2500);
+await until(37);
 await T('confirm-booking').click();
 await until(40);
 

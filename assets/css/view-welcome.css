@@ -18,6 +18,9 @@
     text-wrap: balance;
     overflow-wrap: anywhere;
   }
+  .welcome__title { display: flex; flex-direction: column; gap: var(--s-2); font-size: var(--fs-25); }
+  .welcome__greet { display: block; }
+  .welcome__greet + .welcome__greet { font-size: var(--fs-20); font-weight: 600; color: var(--text-2); }
   .welcome__choices { display: flex; flex-direction: column; gap: var(--s-3); }
   .welcome__lang {
     display: flex;
@@ -36,9 +39,9 @@
     font-weight: 600;
     text-align: left;
     cursor: pointer;
-    transition: transform var(--t-press) var(--ease-out), background var(--t-press) var(--ease-out);
+    transition: transform var(--t-press) var(--ease-out), background-color var(--t-press) var(--ease-out);
   }
-  .welcome__lang:hover { background: var(--ink-800); }
+  @media (hover: hover) { .welcome__lang:hover { background: var(--ink-800); } }
   .welcome__lang:active { transform: scale(0.97); }
   .welcome__lang-code { color: var(--ember-500); }
   .welcome__later { margin: 0; font-size: var(--fs-14); color: var(--text-2); }

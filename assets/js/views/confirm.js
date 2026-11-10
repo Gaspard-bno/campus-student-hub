@@ -53,6 +53,8 @@ export function render(params) {
     row(t('confirm.format'), t(video ? 'book.video' : 'book.onsite')),
     row(t('confirm.where'), where));
 
+  announce(`${t('confirm.title')}. ${t('confirm.ref')} ${booking.id}`);
+
   const card = h('article', { class: 'card card--cream cf-card' }, list);
   if (video) card.appendChild(h('p', { class: 'cf-video-note' }, t('confirm.videoNote')));
 

@@ -7,8 +7,7 @@
   .book-block > h2 { margin: 0; }
   .book-advisors, .book-formats { flex-wrap: wrap; }
   .book-advisors .seg__opt, .book-formats .seg__opt { min-height: 44px; white-space: normal; overflow-wrap: anywhere; }
-
-  .book-days { display: flex; gap: var(--s-2); overflow-x: auto; padding-bottom: var(--s-2); scroll-snap-type: x proximity; scrollbar-width: thin; }
+  .book-days { display: flex; gap: var(--s-2); overflow-x: auto; margin-inline: calc(var(--s-4) * -1); padding: var(--s-1) var(--s-4) var(--s-2); scroll-padding-inline: var(--s-4); scroll-snap-type: x proximity; scrollbar-width: thin; }
   .book-day {
     flex: none; scroll-snap-align: start; min-width: 64px; min-height: 64px; padding: var(--s-2) var(--s-3);
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s-1);
@@ -20,7 +19,6 @@
   .book-day__wd { font-family: var(--font-mono); font-size: var(--fs-12); text-transform: uppercase; letter-spacing: 0.08em; }
   .book-day__num { font-size: var(--fs-20); font-weight: 600; line-height: 1; }
   .book-day[aria-pressed="true"] { background: var(--ember-500); color: var(--on-ember); border-color: var(--ember-500); }
-
   .book-slots { display: flex; flex-direction: column; gap: var(--s-4); outline-offset: var(--s-2); }
   .book-slotgroup { display: flex; flex-direction: column; gap: var(--s-2); }
   .book-slotgroup > h3 { margin: 0; }
@@ -41,7 +39,6 @@
   .book-error-host:empty { display: none; }
   .book-actions { padding-bottom: var(--s-4); }
   .book-actions .btn { height: auto; min-height: 52px; white-space: normal; text-align: center; }
-
   @media (hover: hover) {
     .book-day:hover:not([aria-pressed="true"]), .book-slot:hover:not(:disabled):not([aria-pressed="true"]) { background: var(--ink-800); }
   }

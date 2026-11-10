@@ -1,5 +1,4 @@
-/* App theme: purple and white, following the team's first AI-generated screens (Canva, Step 4).
-   Scoped to the phone; the desktop backdrop and side panel keep the Crousty Studio dark identity. */
+
 #phone {
   --ink-950: #FAF8FD;
   --ink-900: #FEFEFF;
@@ -22,21 +21,20 @@
   --focus: #5A2A86;
   --danger-tint: #FBECEE;
   --ember-tint: #EFE8F7;
+  --field-line: #857399; 
   --shadow-card: 0 1px 2px rgba(45, 20, 75, 0.08), 0 4px 12px rgba(45, 20, 75, 0.06);
+  color-scheme: light;
   background: var(--ink-950);
   color: var(--text-1);
 }
 #phone::before, #phone::after { display: none; }
-
 #phone .banner { background: var(--ink-800); color: var(--ember-500); border-color: var(--line); }
-
-/* Purple top bar */
 #phone .app-header {
   --text-1: #FEFEFF;
   --text-2: #E9DFF5;
   --ink-900: rgba(255, 255, 255, 0.14);
   --ink-800: rgba(255, 255, 255, 0.24);
-  --line: rgba(255, 255, 255, 0.4);
+  --line: rgba(255, 255, 255, 0.55);
   --focus: #FEFEFF;
   --danger: #BE2637;
   --danger-tint: #FEFEFF;
@@ -49,10 +47,9 @@
   --text-1: #1D1429; --text-2: #463A55; --ink-900: #FEFEFF; --ink-800: #EFE8F7; --line: #D6CBE5; --focus: #5A2A86;
   background: #FEFEFF; color: #1D1429; box-shadow: var(--shadow-card);
 }
-
-/* Purple continuation under the header: home hero and back bars */
+#phone .lang__menu :focus-visible { outline-color: #5A2A86; }
 #phone .home__head, #phone .back-bar {
-  --text-1: #FEFEFF; --text-2: #E9DFF5; --focus: #FEFEFF;
+  --text-1: #FEFEFF; --text-2: #E9DFF5; --focus: #FEFEFF; --ink-800: rgba(255, 255, 255, 0.16);
   background: #5A2A86; color: #FEFEFF;
   margin: calc(var(--s-4) * -1) calc(var(--s-4) * -1) 0;
   padding: var(--s-2) var(--s-4) var(--s-6);
@@ -61,51 +58,40 @@
 #phone .back-bar :focus-visible, #phone .home__head .view__title:focus-visible { outline-color: #FEFEFF; }
 #phone .back-btn { color: #FEFEFF; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; font-size: var(--fs-14); }
 #phone .home__title { font-size: var(--fs-25); }
-
-/* White search field */
-#phone .searchbar { background: #FEFEFF; border-color: var(--line); border-radius: 10px; box-shadow: var(--shadow-card); }
+#phone .searchbar { background: #FEFEFF; border-color: var(--field-line); border-radius: 10px; box-shadow: var(--shadow-card); }
 #phone .searchbar__input { font-family: var(--font-sans); font-size: var(--fs-16); }
 #phone .searchbar__input::placeholder { font-family: var(--font-sans); }
-
-/* Cards and tiles: white, soft shadow, purple icons */
+#phone .chat-field { border-color: var(--field-line); }
 #phone .card, #phone .cat, #phone .next, #phone .svc-advisor, #phone .list-row { box-shadow: var(--shadow-card); }
 #phone .cat__icon, #phone .svc-fact__icon, #phone .next__icon { color: var(--ember-500); }
 #phone .card--cream { background: #FEFEFF; border: 1px solid var(--line); }
 #phone .label-mono { font-family: var(--font-sans); font-weight: 700; letter-spacing: 0.04em; color: var(--text-1); }
 #phone .view__title { text-transform: none; }
-
-/* V1 (as tested): uniform 3-column grid, icon above label, like the first screens */
+#phone .cats--v2 .cat:not(.cat--featured) { flex-direction: column; gap: var(--s-2); padding: var(--s-3); }
+#phone .cats--v2 .cat:not(.cat--featured) .cat__icon { margin-top: 0; }
+#phone .cat__label, #phone .cat__hint { overflow-wrap: break-word; }
 html[data-version="1"] #phone .cats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-2); }
 html[data-version="1"] #phone .cat { flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; gap: var(--s-2); padding: var(--s-3) var(--s-1); min-height: 96px; }
 html[data-version="1"] #phone .cat__text { align-items: center; }
 html[data-version="1"] #phone .cat__label { font-size: var(--fs-12); font-weight: 600; line-height: 1.2; }
 html[data-version="1"] #phone .cat__hint { display: none; }
-
-/* Buttons */
 #phone .btn { border-radius: 10px; }
 #phone .btn--primary { text-transform: uppercase; letter-spacing: 0.04em; font-size: var(--fs-14); font-weight: 700; }
 #phone .btn--secondary { background: #FEFEFF; color: var(--ember-500); border: 1.5px solid var(--ember-500); }
-#phone .btn--secondary:hover:not(:disabled) { background: var(--ink-800); }
+@media (hover: hover) { #phone .btn--secondary:hover:not(:disabled) { background: var(--ink-800); } }
 #phone .btn--ghost { color: var(--ember-500); }
 #phone .btn--danger { color: #FEFEFF; }
-
-/* Booking: outlined purple chips, filled when selected */
 #phone .book-slot, #phone .book-day { background: #FEFEFF; border: 1.5px solid var(--ember-500); color: var(--ember-500); border-radius: 8px; font-family: var(--font-sans); font-weight: 600; }
 #phone .book-day__wd { font-family: var(--font-sans); }
 #phone .book-slot[aria-pressed="true"], #phone .book-day[aria-pressed="true"] { background: var(--ember-500); color: #FEFEFF; }
 #phone .book-slot:disabled { border: 1.5px dashed var(--line); color: var(--text-3); background: transparent; }
+#phone .seg { border-color: var(--field-line); }
 #phone .seg__opt[aria-pressed="true"] { background: var(--ember-500); color: #FEFEFF; }
-
-/* Confirmation: lavender reference box */
 #phone .cf-ref { background: var(--ink-800); border: 0; border-radius: 10px; }
 #phone .cf-ref__code { color: var(--ember-500); font-family: var(--font-sans); font-weight: 700; }
 #phone .view--confirm .view__title { text-transform: uppercase; letter-spacing: 0.01em; }
-
-/* Tab bar: white, purple when active */
 #phone .tabbar { background: #FEFEFF; border-color: var(--line); }
 #phone .tab[aria-current="page"] { color: var(--ember-500); }
-
-/* Readable text on light surfaces */
 #phone .next { background: #FEFEFF; border: 1px solid var(--line); color: var(--text-1); }
 #phone .next__name, #phone .next__label, #phone .next__chev { color: var(--text-1); }
 #phone .next__when { color: var(--text-2); }

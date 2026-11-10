@@ -218,6 +218,19 @@ export function render(params, query) {
     body,
   );
 
+  // Long placeholders (FR) are cut by the input at 320-390 px: fall back to the short one when the full text does not fit.
+  const fitPlaceholder = () => {
+    if (!input.isConnected) return;
+    const cs = getComputedStyle(input, '::placeholder');
+    const ctx = document.createElement('canvas').getContext('2d');
+    ctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    const room = input.clientWidth - parseFloat(getComputedStyle(input).paddingLeft) - parseFloat(getComputedStyle(input).paddingRight);
+    const full = t('search.placeholder');
+    input.placeholder = ctx.measureText(full).width <= room ? full : t('search.placeholderShort');
+  };
+  requestAnimationFrame(fitPlaceholder);
+  document.fonts?.ready.then(fitPlaceholder);
+
   if (initialQ.length >= 2) {
     input.value = initialQ;
     clear.hidden = false;

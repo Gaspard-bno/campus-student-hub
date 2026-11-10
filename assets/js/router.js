@@ -67,7 +67,12 @@ function render(animate = true) {
   cur = { path: p.path, name: p.name, params: p.params, query: p.query };
   const host = document.getElementById('view');
   const el = p.view.render(p.params, p.query);
-  if (animate) el.classList.add(lastDir === 'back' ? 'view-enter-back' : 'view-enter-fwd');
+  if (animate) {
+    const cls = lastDir === 'back' ? 'view-enter-back' : 'view-enter-fwd';
+    el.classList.add(cls);
+    // Drop the class once played so no transform lingers (it widened the scroll area by the 12 px offset).
+    el.addEventListener('animationend', (e) => { if (e.target === el) el.classList.remove(cls); }, { once: false });
+  }
   host.replaceChildren(el);
   host.scrollTop = 0;
   document.body.classList.toggle('is-welcome', p.name === 'welcome');

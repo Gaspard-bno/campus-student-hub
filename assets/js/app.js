@@ -41,7 +41,8 @@ function paintShell() {
   setText($('lang-code'), i18n.getLang().toUpperCase());
   const lb = $('lang-button');
   if (lb) {
-    lb.setAttribute('aria-label', t('nav.language'));
+    // Visible code (EN/PT/FR) stays part of the accessible name (WCAG 2.5.3 label in name).
+    lb.setAttribute('aria-label', `${t('nav.language')}, ${i18n.getLang().toUpperCase()}`);
     if (!lb.querySelector('svg')) lb.insertAdjacentHTML('afterbegin', icon('globe', 20));
   }
   document.querySelectorAll('#lang-menu [data-lang]').forEach((b) => {
@@ -111,6 +112,10 @@ function bindShell() {
   });
   document.addEventListener('click', (e) => {
     if (menu && !menu.hidden && !e.target.closest('#lang-menu, #lang-button')) closeMenu();
+  });
+  // Tabbing out of the open menu closes it.
+  lb?.closest('.lang')?.addEventListener('focusout', (e) => {
+    if (menu && !menu.hidden && e.relatedTarget && !e.currentTarget.contains(e.relatedTarget)) closeMenu();
   });
 
   // Logo: tap goes home, 1 s long press toggles V1 / V2 (observer shortcut on mobile).

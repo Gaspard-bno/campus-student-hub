@@ -1,0 +1,29 @@
+{
+  "name": "campus-student-hub",
+  "version": "1.0.0",
+  "description": "Campus Student Hub: conceptual interactive prototype (demo data)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "playwright test -c tests/playwright.config.mjs",
+    "serve": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "qr": "node tools/qr.mjs",
+    "shots": "node tools/screenshots.mjs",
+    "offline": "node tools/inline.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@fontsource/hanken-grotesk": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@playwright/test": "^1.65.0",
+    "esbuild": "^0.28.2",
+    "fontsource": "^0.0.1-security",
+    "qrcode": "^1.5.4"
+  },
+  "private": true
+}

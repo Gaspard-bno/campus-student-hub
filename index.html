@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" data-version="2">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#5A2A86">
+  <meta name="description" content="Campus Student Hub, a conceptual interactive prototype by Crousty Studio. Demo data only.">
+  <title>Campus Student Hub</title>
+  <link rel="preload" href="assets/fonts/hanken-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/hanken-grotesk-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/view-welcome.css">
+  <link rel="stylesheet" href="assets/css/view-home.css">
+  <link rel="stylesheet" href="assets/css/view-service.css">
+  <link rel="stylesheet" href="assets/css/view-book.css">
+  <link rel="stylesheet" href="assets/css/view-confirm.css">
+  <link rel="stylesheet" href="assets/css/view-bookings.css">
+  <link rel="stylesheet" href="assets/css/view-help.css">
+  <link rel="stylesheet" href="assets/css/view-observer.css">
+  <link rel="stylesheet" href="assets/css/theme-campus.css">
+</head>
+<body>
+  <div class="stage">
+    <aside id="panel" class="panel">
+      <p id="panel-brand" class="panel__brand"></p>
+      <h2 id="panel-title" class="panel__title"></h2>
+      <p id="panel-desc" class="panel__desc"></p>
+
+      <div class="panel__group">
+        <p id="panel-version-label" class="label-mono"></p>
+        <div class="seg" role="group" aria-labelledby="panel-version-label">
+          <button type="button" class="seg__opt" data-testid="version-1" aria-pressed="false"></button>
+          <button type="button" class="seg__opt" data-testid="version-2" aria-pressed="true"></button>
+        </div>
+      </div>
+
+      <div class="panel__group">
+        <button type="button" class="btn btn--secondary" data-testid="reset-demo"></button>
+        <p id="panel-reset-status" class="notice-mono" role="status"></p>
+      </div>
+
+      <div id="panel-observer" class="panel__group"></div>
+
+      <figure class="panel__qr">
+        <figcaption id="panel-scan-label" class="label-mono"></figcaption>
+        <img data-testid="qr" src="assets/img/qr-code.svg" width="132" height="132" alt="" onerror="this.closest('figure').hidden=true">
+      </figure>
+    </aside>
+
+    <div id="phone" class="phone">
+      <div id="banner" class="banner" data-testid="banner" role="note"></div>
+
+      <header id="app-header" class="app-header">
+        <button type="button" id="logo" class="app-header__logo" data-testid="logo"></button>
+        <div class="app-header__actions">
+          <div class="lang">
+            <button type="button" id="lang-button" class="lang__btn" data-testid="lang-button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu"><span class="lang__icon" aria-hidden="true"></span><span id="lang-code" class="lang__code"></span></button>
+            <div id="lang-menu" class="lang__menu" hidden>
+              <button type="button" class="lang__opt" data-testid="lang-option-en" data-lang="en" lang="en"></button>
+              <button type="button" class="lang__opt" data-testid="lang-option-pt" data-lang="pt" lang="pt-BR"></button>
+              <button type="button" class="lang__opt" data-testid="lang-option-fr" data-lang="fr" lang="fr"></button>
+            </div>
+          </div>
+          <a id="urgent-button" class="icon-btn icon-btn--danger" data-testid="urgent-button" href="#/help"></a>
+        </div>
+      </header>
+
+      <main id="view" class="app-main" tabindex="-1"></main>
+
+      <nav id="tabbar" class="tabbar">
+        <a class="tab" data-testid="tab-home" data-tab="home" href="#/home"><span class="tab__icon"></span><span class="tab__label"></span></a>
+        <a class="tab" data-testid="tab-bookings" data-tab="bookings" href="#/bookings"><span class="tab__icon"></span><span class="tab__label"></span></a>
+        <a class="tab" data-testid="tab-help" data-tab="help" href="#/help"><span class="tab__icon"></span><span class="tab__label"></span></a>
+      </nav>
+    </div>
+  </div>
+
+  <div id="live" class="sr-only" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+{
+  "_meta": {
+    "campus": "Demo Campus",
+    "notice": "All services, advisors, rooms and hours are fictional demo data for a conceptual prototype. Not affiliated with any real university service.",
+    "slotMinutes": 30,
+    "availabilityRatio": 0.6
+  },
+  "categories": [
+    { "id": "counselling", "icon": "heart-handshake", "featured": true },
+    { "id": "academic", "icon": "graduation-cap", "featured": true },
+    { "id": "international", "icon": "globe", "featured": false },
+    { "id": "financial", "icon": "wallet", "featured": false },
+    { "id": "housing", "icon": "home", "featured": false },
+    { "id": "health", "icon": "stethoscope", "featured": false },
+    { "id": "career", "icon": "briefcase", "featured": false },
+    { "id": "it", "icon": "wifi", "featured": false }
+  ],
+  "services": [
+    {
+      "id": "counselling-session",
+      "category": "counselling",
+      "name": { "en": "Counselling session", "pt": "Sessão de acolhimento psicológico", "fr": "Séance d'écoute psychologique" },
+      "summary": {
+        "en": "A confidential conversation with a counsellor about stress, adaptation, homesickness or anything on your mind. Free for students.",
+        "pt": "Uma conversa confidencial com um psicólogo sobre estresse, adaptação, saudade de casa ou qualquer outra preocupação. Gratuito para estudantes.",
+        "fr": "Un échange confidentiel avec un psychologue sur le stress, l'adaptation, le mal du pays ou tout autre sujet. Gratuit pour les étudiants."
+      },
+      "keywords": ["counselling", "counseling", "counsellor", "therapy", "therapist", "psychologist", "mental health", "stress", "anxiety", "wellbeing", "psicólogo", "psicologa", "psicologia", "terapia", "saúde mental", "estresse", "ansiedade", "acolhimento", "psychologue", "psy", "santé mentale", "anxiété", "écoute", "bien-être"],
+      "location": { "en": "Building B, room 104", "pt": "Prédio B, sala 104", "fr": "Bâtiment B, salle 104" },
+      "hours": { "days": [1, 2, 3, 4, 5], "start": "09:00", "end": "17:00" },
+      "durationMin": 45,
+      "formats": ["onsite", "video"],
+      "advisors": [
+        { "id": "a-silva", "name": "Ana Ribeiro", "role": { "en": "Counsellor", "pt": "Psicóloga", "fr": "Psychologue" }, "languages": ["pt", "en", "es"] },
+        { "id": "a-martin", "name": "Louis Garnier", "role": { "en": "Counsellor", "pt": "Psicólogo", "fr": "Psychologue" }, "languages": ["fr", "en", "pt"] }
+      ]
+    },
+    {
+      "id": "academic-advising",
+      "category": "academic",
+      "name": { "en": "Academic advising", "pt": "Orientação acadêmica", "fr": "Conseil pédagogique" },
+      "summary": {
+        "en": "Help with course choices, credit transfers, schedules and exam rules for your exchange semester.",
+        "pt": "Ajuda com escolha de disciplinas, aproveitamento de créditos, horários e regras de provas do seu semestre de intercâmbio.",
+        "fr": "Aide pour le choix des cours, la reconnaissance des crédits, l'emploi du temps et les règles d'examen de votre semestre d'échange."
+      },
+      "keywords": ["academic", "advisor", "adviser", "courses", "credits", "schedule", "exams", "learning agreement", "orientação", "disciplinas", "créditos", "horário", "provas", "coordenação", "conseil", "cours", "crédits", "examens", "emploi du temps", "contrat d'études"],
+      "location": { "en": "Building A, room 210", "pt": "Prédio A, sala 210", "fr": "Bâtiment A, salle 210" },
+      "hours": { "days": [1, 2, 3, 4, 5], "start": "09:00", "end": "16:00" },
+      "durationMin": 30,
+      "formats": ["onsite", "video"],
+      "advisors": [
+        { "id": "b-costa", "name": "Marcos Teixeira", "role": { "en": "Academic advisor", "pt": "Orientador acadêmico", "fr": "Conseiller pédagogique" }, "languages": ["pt", "en"] },
+        { "id": "b-lee", "name": "Julia Moreau", "role": { "en": "Exchange coordinator", "pt": "Coordenadora de intercâmbio", "fr": "Coordinatrice des échanges" }, "languages": ["fr", "en", "pt"] }
+      ]
+    },
+    {
+      "id": "international-office",
+      "category": "international",
+      "name": { "en": "International office", "pt": "Escritório internacional", "fr": "Bureau international" },
+      "summary": {
+        "en": "Arrival checklist, student documents, residence paperwork guidance and exchange programme questions.",
+        "pt": "Checklist de chegada, documentos de estudante, orientação sobre papéis de residência e dúvidas sobre o intercâmbio.",
+        "fr": "Liste d'arrivée, documents étudiants, orientation pour les démarches de séjour et questions sur le programme d'échange."
+      },
+      "keywords": ["international", "exchange", "arrival", "documents", "visa", "student card", "residence", "intercâmbio", "chegada", "documentos", "carteirinha", "internacional", "échange", "arrivée", "carte étudiante", "titre de séjour"],
+      "location": { "en": "Building A, ground floor", "pt": "Prédio A, térreo", "fr": "Bâtiment A, rez-de-chaussée" },
+      "hours": { "days": [1, 2, 3, 4, 5], "start": "10:00", "end": "17:00" },
+      "durationMin": 30,
+      "formats": ["onsite", "video"],
+      "advisors": [
+        { "id": "c-alves", "name": "Beatriz Nogueira", "role": { "en": "International officer", "pt": "Assessora internacional", "fr": "Chargée des relations internationales" }, "languages": ["pt", "en", "es"] },
+        { "id": "c-dubois", "name": "Thomas Leroy", "role": { "en": "International officer", "pt": "Assessor internacional", "fr": "Chargé des relations internationales" }, "languages": ["fr", "en"] }
+      ]
+    },
+    {
+      "id": "financial-aid",
+      "category": "financial",
+      "name": { "en": "Financial aid", "pt": "Apoio financeiro", "fr": "Aide financière" },
+      "summary": {
+        "en": "Questions about fees, scholarships, payment plans and emergency support funds.",
+        "pt": "Dúvidas sobre mensalidades, bolsas, parcelamentos e auxílios emergenciais.",
+        "fr": "Questions sur les frais, les bourses, les échéanciers et les aides d'urgence."
+      },
+      "keywords": ["financial", "money", "fees", "scholarship", "grant", "payment", "financeiro", "bolsa", "mensalidade", "pagamento", "auxílio", "financière", "bourse", "frais", "paiement", "aide"],
+      "location": { "en": "Building C, room 12", "pt": "Prédio C, sala 12", "fr": "Bâtiment C, salle 12" },
+      "hours": { "days": [1, 2, 3, 4, 5], "start": "09:00", "end": "15:00" },
+      "durationMin": 30,
+      "formats": ["onsite", "video"],
+      "advisors": [
+        { "id": "d-rocha", "name": "Paulo Mendes", "role": { "en": "Financial aid officer", "pt": "Analista de apoio financeiro", "fr": "Chargé d'aide financière" }, "languages": ["pt", "en"] }
+      ]
+    },
+    {
+      "id": "housing-help",
+      "category": "housing",
+      "name": { "en": "Housing help", "pt": "Apoio à moradia", "fr": "Aide au logement" },
+      "summary": {
+        "en": "Advice on finding a room, reading a rental contract and solving problems with a landlord.",
+        "pt": "Orientação para encontrar um quarto, entender um contrato de aluguel e resolver problemas com o proprietário.",
+        "fr": "Conseils pour trouver une chambre, comprendre un bail et régler un problème avec un propriétaire."
+      },
+      "keywords": ["housing", "room", "rent", "apartment", "landlord", "accommodation", "moradia", "quarto", "aluguel", "apartamento", "república", "logement", "chambre", "loyer", "appartement", "propriétaire", "colocation"],
+      "location": { "en": "Building C, room 15", "pt": "Prédio C, sala 15", "fr": "Bâtiment C, salle 15" },
+      "hours": { "days": [2, 4], "start": "10:00", "end": "16:00" },
+      "durationMin": 30,
+      "formats": ["onsite", "video"],
+      "advisors": [
+        { "id": "e-souza", "name": "Camila Prado", "role": { "en": "Housing advisor", "pt": "Orientadora de moradia", "fr": "Conseillère logement" }, "languages": ["pt", "en"] }
+      ]
+    },
+    {
+      "id": "health-service",
+      "category": "health",
+      "name": { "en": "Campus health service", "pt": "Ambulatório do campus", "fr": "Service de santé du campus" },
+      "summary": {
+        "en": "Nurse consultations, first aid and guidance to local health services. For emergencies, call SAMU 192.",
+        "pt": "Atendimento de enfermagem, primeiros socorros e orientação para a rede de saúde. Em emergências, ligue para o SAMU 192.",
+        "fr": "Consultations infirmières, premiers secours et orientation vers les services de santé. En cas d'urgence, appelez le SAMU 192."
+      },
+      "keywords": ["health", "nurse", "doctor", "medical", "sick", "first aid", "saúde", "enfermagem", "médico", "ambulatório", "doente", "santé", "infirmière", "médecin", "malade"],
+      "location": { "en": "Building D, ground floor", "pt": "Prédio D, térreo", "fr": "Bâtiment D, rez-de-chaussée" },
+      "hours": { "days": [1, 2, 3, 4, 5], "start": "08:00", "end": "18:00" },
+      "durationMin": 20,
+      "formats": ["onsite"],
+      "advisors": [
+        { "id": "f-lima", "name": "Renata Campos", "role": { "en": "Nurse", "pt": "Enfermeira", "fr": "Infirmière" }, "languages": ["pt", "en"] }
+      ]
+    },
+    {
+      "id": "career-centre",
+      "category": "career",
+      "name": { "en": "Career centre", "pt": "Central de carreiras", "fr": "Service carrières" },
+      "summary": {
+        "en": "CV reviews, internship search and interview practice, in English or Portuguese.",
+        "pt": "Revisão de currículo, busca de estágio e simulação de entrevistas, em inglês ou português.",
+        "fr": "Relecture de CV, recherche de stage et entraînement aux entretiens, en anglais ou en portugais."
+      },
+      "keywords": ["career", "cv", "resume", "internship", "job", "interview", "carreira", "currículo", "estágio", "emprego", "entrevista", "carrière", "stage", "emploi", "entretien"],
+      "location": { "en": "Building A, room 305", "pt": "Prédio A, sala 305", "fr": "Bâtiment A, salle 305" },
+      "hours": { "days": [1, 3, 5], "start": "13:00", "end": "17:00" },
+      "durationMin": 30,
+      "formats": ["onsite", "video"],
+      "advisors": [
+        { "id": "g-ferreira", "name": "Diego Martins", "role": { "en": "Career advisor", "pt": "Consultor de carreira", "fr": "Conseiller carrière" }, "languages": ["pt", "en", "es"] }
+      ]
+    },
+    {
+      "id": "it-support",
+      "category": "it",
+      "name": { "en": "IT and student card", "pt": "TI e carteirinha", "fr": "Informatique et carte étudiante" },
+      "summary": {
+        "en": "Wi-Fi access, student email, learning platform login and lost student cards.",
+        "pt": "Acesso ao Wi-Fi, e-mail estudantil, login na plataforma de ensino e carteirinha perdida.",
+        "fr": "Accès Wi-Fi, messagerie étudiante, connexion à la plateforme de cours et carte étudiante perdue."
+      },
+      "keywords": ["it", "wifi", "wi-fi", "email", "password", "login", "student card", "lost card", "ti", "senha", "carteirinha", "perdi", "informática", "mot de passe", "carte étudiante", "perdu", "informatique"],
+      "location": { "en": "Library, level 1", "pt": "Biblioteca, piso 1", "fr": "Bibliothèque, niveau 1" },
+      "hours": { "days": [1, 2, 3, 4, 5], "start": "08:00", "end": "18:00" },
+      "durationMin": 15,
+      "formats": ["onsite"],
+      "advisors": [
+        { "id": "h-araujo", "name": "Felipe Duarte", "role": { "en": "IT technician", "pt": "Técnico de TI", "fr": "Technicien informatique" }, "languages": ["pt", "en"] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+@layer views {
+  .view--confirm { display: flex; flex-direction: column; gap: var(--s-6); }
+  .cf-head { display: flex; flex-direction: column; gap: var(--s-2); align-items: flex-start; }
+  .cf-ok { color: var(--success); display: inline-flex; }
+  .cf-head .view__title { margin: 0; overflow-wrap: anywhere; }
+  .cf-sub { margin: 0; color: var(--text-2); }
+  .cf-ref { display: flex; flex-direction: column; gap: var(--s-2); align-items: flex-start; padding: var(--s-4); background: var(--ink-900); border: 1px solid var(--line); border-radius: var(--r-md); }
+  .cf-ref__code { margin: 0; font-family: var(--font-mono); font-size: var(--fs-31); font-weight: 500; letter-spacing: 0.06em; color: var(--text-1); overflow-wrap: anywhere; }
+  .cf-copy { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 44px; min-width: 44px; height: auto; white-space: normal; }
+  .cf-copy__icon { display: inline-flex; flex: none; }
+  .cf-card { display: flex; flex-direction: column; gap: var(--s-3); }
+  .cf-list { margin: 0; display: flex; flex-direction: column; gap: var(--s-3); }
+  .cf-row { display: flex; flex-direction: column; gap: var(--s-1); padding-bottom: var(--s-3); border-bottom: 1px solid var(--line); }
+  .cf-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .cf-card .label-mono { color: var(--ink-800); margin: 0; }
+  .cf-row__value { margin: 0; overflow-wrap: anywhere; }
+  .cf-video-note { margin: 0; font-size: var(--fs-14); }
+  .cf-actions { display: flex; flex-direction: column; gap: var(--s-3); }
+  .cf-actions .btn { height: auto; min-height: 52px; white-space: normal; display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2); text-align: center; }
+}

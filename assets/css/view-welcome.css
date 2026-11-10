@@ -1,0 +1,49 @@
+@layer views {
+  .view--welcome {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--s-8);
+    padding-block: var(--s-8);
+  }
+  .welcome__intro { display: flex; flex-direction: column; gap: var(--s-3); }
+  .welcome__eyebrow { color: var(--amber-300); margin: 0; }
+  .welcome__title {
+    margin: 0;
+    font-size: var(--fs-31);
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--text-1);
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+  .welcome__choices { display: flex; flex-direction: column; gap: var(--s-3); }
+  .welcome__lang {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    width: 100%;
+    min-height: 64px;
+    padding: var(--s-3) var(--s-6);
+    background: var(--ink-900);
+    color: var(--text-1);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    font: inherit;
+    font-size: var(--fs-20);
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: transform var(--t-press) var(--ease-out), background var(--t-press) var(--ease-out);
+  }
+  .welcome__lang:hover { background: var(--ink-800); }
+  .welcome__lang:active { transform: scale(0.97); }
+  .welcome__lang-code { color: var(--ember-500); }
+  .welcome__later { margin: 0; font-size: var(--fs-14); color: var(--text-2); }
+  @media (prefers-reduced-motion: reduce) {
+    .welcome__lang { transition: none; }
+    .welcome__lang:active { transform: none; }
+  }
+}
